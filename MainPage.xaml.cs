@@ -11,11 +11,18 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
         connectionManager = new NetworkConnectionManager(new DefaultNetworkConnection());
+        OnStartCheckingConnection();
 
     }
 
     private async void OnCounterClicked(object sender, EventArgs e)
 	{
+        
+
+    }
+
+    private async void OnStartCheckingConnection() 
+    {
         try
         {
             bool isConnected = await connectionManager.IsConnectedToNetwork();
@@ -28,7 +35,6 @@ public partial class MainPage : ContentPage
         {
             await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
         }
-
     }
 }
 
