@@ -13,6 +13,7 @@ public partial class MainPage : ContentPage
         connectionManager = new NetworkConnectionManager(new DefaultNetworkConnection());
         OnStartCheckingConnection();
 
+
     }
 
     private async void OnStartCheckingConnection() 
@@ -30,5 +31,6 @@ public partial class MainPage : ContentPage
             await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
         }
     }
+
 }
 
