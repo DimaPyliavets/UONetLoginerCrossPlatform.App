@@ -1,24 +1,34 @@
-﻿namespace UONetLoginerCrossPlatform;
+﻿
+using UONetLoginerCrossPlatform.Network_Checker;
+
+namespace UONetLoginerCrossPlatform;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
 
-	public MainPage()
+    private NetworkConnectionManager connectionManager;
+    public MainPage()
 	{
 		InitializeComponent();
-	}
+        connectionManager = new NetworkConnectionManager(new DefaultNetworkConnection());
 
-	private void OnCounterClicked(object sender, EventArgs e)
+    }
+
+    private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		count++;
+        try
+        {
+            bool isConnected = await connectionManager.IsConnectedToNetwork();
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+            string connectionStatus = isConnected ? "You are connected to the network." : "You are not connected to the network.";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+            await DisplayAlert("Network Connection", connectionStatus, "OK");
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+        }
+
+    }
 }
 
