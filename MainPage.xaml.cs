@@ -15,12 +15,6 @@ public partial class MainPage : ContentPage
 
     }
 
-    private async void OnCounterClicked(object sender, EventArgs e)
-	{
-        
-
-    }
-
     private async void OnStartCheckingConnection() 
     {
         try
