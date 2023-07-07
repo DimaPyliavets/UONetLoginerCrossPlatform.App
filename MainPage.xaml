@@ -1,41 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UONetLoginerCrossPlatform.MainPage">
+             x:Class="UONetLoginerCrossPlatform.MainPage"
+             Title="LoginPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+        <StackLayout>
+            <Frame BackgroundColor="SkyBlue" HeightRequest="60" WidthRequest="60" CornerRadius="30" Padding="0" Margin="0, 100, 0,0" HorizontalOptions="Center">
+                <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+            </Frame>
+            
+        </StackLayout>
+        <Grid RowSpacing="5" Grid.Row="1" Margin="20,20,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Text="Welcome!" HorizontalOptions="Center" FontSize="Title" FontAttributes="Bold" Padding="0" Margin="0"/>
+            <Label Grid.Row="2" Text="Sign in to continue" HorizontalOptions="Center" FontSize="Subtitle"/>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Frame BackgroundColor="Transparent" BorderColor="LightGreen" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        
+                <Entry Text="{Binding UserName}" Placeholder="Username" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="15,0,0,0"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout> 
+            
+            <StackLayout Grid.Row="4" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Frame BackgroundColor="Transparent" BorderColor="LightGreen" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        
+                        <Entry Text="{Binding Password}" Placeholder="Password" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="15,0,0,0"/>
+                    </StackLayout>
+                </Frame>
+                
+                <StackLayout Orientation="Horizontal" Margin="0,10,0,0" Padding="0">
+                    <CheckBox IsChecked="False"/>
+                    <Label Text="Remember ME" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <CheckBox IsChecked="False"/>
+                    <Label Text="Auto Login" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Button Text="Sign IN" BackgroundColor="Green" FontAttributes="Bold"/>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+            </StackLayout>
+        </Grid>
+        
+        
+    </Grid>
 
 </ContentPage>
