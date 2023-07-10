@@ -1,23 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UONetLoginerCrossPlatform.MainPage"
              Title="LoginPage">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="220"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-
-        <StackLayout>
-            <Frame BackgroundColor="SkyBlue" HeightRequest="60" WidthRequest="60" CornerRadius="30" Padding="0" Margin="0, 100, 0,0" HorizontalOptions="Center">
-                <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
-            </Frame>
-            
-        </StackLayout>
         <Grid RowSpacing="5" Grid.Row="1" Margin="20,20,20,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -28,39 +20,35 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="1" Text="Welcome!" HorizontalOptions="Center" FontSize="Title" FontAttributes="Bold" Padding="0" Margin="0"/>
-            <Label Grid.Row="2" Text="Sign in to continue" HorizontalOptions="Center" FontSize="Subtitle"/>
 
-            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+            <Label Grid.Row="1" Text="{Binding ConnectionStatus}" HorizontalOptions="Center" FontSize="Subtitle"/>
+
+            <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                 <Frame BackgroundColor="Transparent" BorderColor="LightGreen" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                     <StackLayout Orientation="Horizontal">
-                        
-                <Entry Text="{Binding UserName}" Placeholder="Username" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="15,0,0,0"/>
+                        <Entry x:Name="UsernameEntry" Placeholder="Username" TextColor="Gray" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="15,0,0,0"/>
                     </StackLayout>
                 </Frame>
-            </StackLayout> 
-            
-            <StackLayout Grid.Row="4" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                 <Frame BackgroundColor="Transparent" BorderColor="LightGreen" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                     <StackLayout Orientation="Horizontal">
-                        
-                        <Entry Text="{Binding Password}" Placeholder="Password" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="15,0,0,0"/>
+                        <Entry x:Name="PasswordEntry" Placeholder="Password" TextColor="Gray" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="15,0,0,0"/>
                     </StackLayout>
                 </Frame>
-                
-                <StackLayout Orientation="Horizontal" Margin="0,10,0,0" Padding="0">
-                    <CheckBox IsChecked="False"/>
-                    <Label Text="Remember ME" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                    <CheckBox IsChecked="False"/>
-                    <Label Text="Auto Login" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                </StackLayout>
-                <Button Text="Sign IN" BackgroundColor="Green" FontAttributes="Bold"/>
-
-
             </StackLayout>
+
+            
+
+            <StackLayout Grid.Row="5">
+                <Button x:Name="LoginButton" Text="Login" Clicked="LoginActionBTN" />
+            </StackLayout>
+            <StackLayout Grid.Row="6">
+                <Button x:Name="LogoutButton" Text="Logout" Clicked="LogoutActionBTN" />
+            </StackLayout>
+
         </Grid>
-        
-        
     </Grid>
 
 </ContentPage>
