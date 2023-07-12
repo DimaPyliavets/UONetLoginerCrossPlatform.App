@@ -10,7 +10,7 @@ namespace UONetLoginerCrossPlatform.Network_Checker
             {
                 try
                 {
-                    var response = await httpClient.GetAsync(DataStrings.StatusUOPage);
+                    var response = await httpClient.GetAsync(DataStrings.BaseUOPageLink);
 
                     if (response.IsSuccessStatusCode)
                     {

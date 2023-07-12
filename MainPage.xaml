@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="1" Text="{Binding ConnectionStatus}" HorizontalOptions="Center" FontSize="Subtitle"/>
+            <Label Grid.Row="1" Text="{Binding StatusOfConnection}" TextColor="{Binding ColorTextStatusOfConnection}" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
 
             <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                 <Frame BackgroundColor="Transparent" BorderColor="LightGreen" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
@@ -42,10 +42,10 @@
             
 
             <StackLayout Grid.Row="5">
-                <Button x:Name="LoginButton" Text="Login" Clicked="LoginActionBTN" />
+                <Button x:Name="LoginButton" Text="Login" Clicked="LoginActionBTN" IsEnabled="False" />
             </StackLayout>
             <StackLayout Grid.Row="6">
-                <Button x:Name="LogoutButton" Text="Logout" Clicked="LogoutActionBTN" />
+                <Button x:Name="LogoutButton" Text="Logout" Clicked="LogoutActionBTN" IsEnabled="False" />
             </StackLayout>
 
         </Grid>

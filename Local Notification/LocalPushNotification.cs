@@ -13,6 +13,7 @@ namespace UONetLoginerCrossPlatform.Local_Notification
                 Subtitle = subtitle,
                 Description = description,
                 BadgeNumber = 1,
+                Sound = null,
             };
 
             await LocalNotificationCenter.Current.Show(notificationRequest);
